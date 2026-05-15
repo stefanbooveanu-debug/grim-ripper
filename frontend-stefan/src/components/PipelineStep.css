@@ -1,0 +1,66 @@
+.pipeline-step {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  list-style: none;
+}
+
+.pipeline-step:last-child {
+  border-bottom: none;
+}
+
+.pipeline-step-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 4px;
+  flex-shrink: 0;
+  background: var(--slate);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pipeline-step--active .pipeline-step-indicator {
+  background: var(--ember);
+  box-shadow: 0 0 12px var(--glow);
+  animation: pulse 1s ease infinite;
+}
+
+.pipeline-step--done .pipeline-step-indicator {
+  background: var(--success);
+  border-color: var(--success);
+}
+
+.pipeline-step--error .pipeline-step-indicator {
+  background: var(--blood);
+}
+
+.pipeline-step-label {
+  display: block;
+  font-weight: 600;
+  color: var(--bone);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.pipeline-step-desc {
+  display: block;
+  color: var(--fog);
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+
+.pipeline-step-meta {
+  display: block;
+  color: var(--success);
+  font-size: 0.7rem;
+  margin-top: 6px;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.6;
+  }
+}

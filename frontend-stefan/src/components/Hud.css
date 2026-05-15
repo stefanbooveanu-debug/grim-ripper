@@ -1,0 +1,34 @@
+.hud {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--ash);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius);
+  margin-bottom: 14px;
+}
+
+.hud-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hud-label {
+  font-size: 0.6rem;
+  color: var(--fog);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hud-value {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--bone);
+}
+
+.hud-combo {
+  color: var(--ember);
+  text-shadow: 0 0 20px var(--glow);
+}

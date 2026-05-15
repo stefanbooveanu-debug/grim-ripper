@@ -1,0 +1,18 @@
+:root {
+  --void: #050508;
+  --ash: #12121a;
+  --smoke: #1e1e2a;
+  --slate: #2a2a38;
+  --bone: #e8e4dc;
+  --fog: #8a8698;
+  --blood: #8b1a2b;
+  --ember: #c43c4a;
+  --soul: #6b4cff;
+  --success: #3d9a6a;
+  --glow: rgba(196, 60, 74, 0.35);
+  --radius: 10px;
+  --font-display: 'Cinzel', serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --max-content: 960px;
+  --max-narrow: 520px;
+}

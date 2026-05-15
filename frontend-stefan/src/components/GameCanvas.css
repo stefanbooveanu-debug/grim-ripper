@@ -1,0 +1,45 @@
+.game-shell {
+  max-width: var(--max-narrow);
+  margin: 0 auto;
+}
+
+.arena-wrap {
+  position: relative;
+  height: min(62vh, 520px);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow:
+    inset 0 0 60px rgba(0, 0, 0, 0.6),
+    0 12px 40px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(180deg, var(--smoke) 0%, var(--ash) 45%, #0a0a10 100%);
+  cursor: crosshair;
+  touch-action: manipulation;
+}
+
+#arena {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.lane-hint {
+  position: absolute;
+  bottom: 72px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.65rem;
+  color: rgba(232, 228, 220, 0.35);
+  letter-spacing: 0.12em;
+  pointer-events: none;
+}
+
+.game-footer {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.game-footer .btn {
+  flex: 1;
+}

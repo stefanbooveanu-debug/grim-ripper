@@ -1,0 +1,52 @@
+.payload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.payload-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.payload-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fog);
+}
+
+.payload-file-meta {
+  font-size: 0.75rem;
+  color: var(--ember);
+}
+
+.payload-options {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.payload-options legend {
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.payload-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--bone);
+  cursor: pointer;
+}
+
+.payload-field input[type='file'] {
+  font-family: inherit;
+  font-size: 0.75rem;
+  color: var(--fog);
+}

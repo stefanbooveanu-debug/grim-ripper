@@ -1,0 +1,17 @@
+.game-page-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.game-page-header h1 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.game-page-header p {
+  font-size: 0.72rem;
+  color: var(--fog);
+  margin-top: 6px;
+}

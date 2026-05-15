@@ -1,0 +1,109 @@
+.landing-hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.landing-track {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 12px;
+}
+
+.landing-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 8vw, 3rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, var(--bone), var(--fog));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.landing-tagline {
+  margin-top: 10px;
+  color: var(--fog);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.landing-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.landing-hint {
+  margin-top: 16px;
+  font-size: 0.7rem;
+  color: var(--fog);
+}
+
+.landing-hint kbd {
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--smoke);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--bone);
+}
+
+.landing-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.landing-demo {
+  background: var(--ash);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  color: var(--bone);
+}
+
+.demo-steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.demo-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.82rem;
+  color: var(--fog);
+}
+
+.demo-num {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--blood);
+  color: var(--bone);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.landing--presentation .landing-title {
+  font-size: clamp(2.4rem, 10vw, 3.5rem);
+}

@@ -1,0 +1,22 @@
+.info-card {
+  background: var(--ash);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+}
+
+.info-card-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bone);
+  margin-bottom: 12px;
+}
+
+.info-card-body {
+  color: var(--fog);
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
