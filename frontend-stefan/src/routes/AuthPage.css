@@ -164,6 +164,28 @@
   margin-bottom: 1.5rem;
 }
 
+.auth-stepper {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.auth-step {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #71717a;
+  border: 1px solid #3f3f46;
+  border-radius: 9999px;
+  padding: 4px 10px;
+}
+
+.auth-step.active {
+  color: #f5f3ff;
+  border-color: #7c3aed;
+  background: rgba(124, 58, 237, 0.2);
+}
+
 .auth-form-fields {
   display: flex;
   flex-direction: column;
@@ -241,6 +263,22 @@
   margin-top: 22px;
   position: relative;
   overflow: hidden;
+}
+
+.auth-inline-link {
+  margin-top: 10px;
+  border: none;
+  background: transparent;
+  color: #c084fc;
+  font-size: 0.78rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.auth-inline-link:hover {
+  color: #ddd6fe;
 }
 
 .auth-submit--busy .auth-submit-label {

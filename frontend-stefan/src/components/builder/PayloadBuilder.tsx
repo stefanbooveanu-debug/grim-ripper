@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useAuth } from '../../auth/AuthContext';
+import { startDownloadWindow } from '../../lib/downloadWindowStorage';
 import { OBFUSCATION_METHOD, obfuscatePowerShell } from '../../lib/obfuscate';
 import { useStore } from '../../store';
 import { ConfigPanel } from './ConfigPanel';
@@ -6,8 +8,15 @@ import { OutputPanel } from './OutputPanel';
 import './builder.css';
 
 export function PayloadBuilder() {
+  const { session } = useAuth();
   const [isProcessing, setIsProcessing] = useState(false);
   const { scriptInput, setProcessedScript, addLog } = useStore();
+
+  const handleScriptPasted = () => {
+    const email = session?.email?.trim();
+    if (!email) return;
+    startDownloadWindow(email);
+  };
 
   const handleProcess = () => {
     if (!scriptInput.trim()) return;
@@ -33,7 +42,7 @@ export function PayloadBuilder() {
         method: OBFUSCATION_METHOD,
         status: 'success',
         length: processed.length,
-        details: `Processed ${scriptInput.length} bytes → ${processed.length} bytes. Script wrapped in Base64 with Invoke-Expression.`,
+        details: `Processed ${scriptInput.length} bytes → ${processed.length} bytes using safe cleanup and validation rules.`,
       });
 
       setIsProcessing(false);
@@ -45,16 +54,20 @@ export function PayloadBuilder() {
       <header className="builder-header">
         <h1 className="builder-title">GRIM DROPPER</h1>
         <p className="builder-sub">
-          Paste a PowerShell script to obfuscate and prepare for deployment
+          Paste your script to validate and clean formatting before authorized review
         </p>
         <p className="builder-trust-note">
-          Use this output only in authorized environments. Generated actions are logged for
-          traceability.
+          This web flow performs safe cleanup and validation only. Potentially unsafe content is
+          flagged and not transformed.
         </p>
       </header>
 
       <div className="builder-grid">
-        <ConfigPanel onProcess={handleProcess} isProcessing={isProcessing} />
+        <ConfigPanel
+          onProcess={handleProcess}
+          isProcessing={isProcessing}
+          onScriptPasted={handleScriptPasted}
+        />
         <OutputPanel />
       </div>
     </>

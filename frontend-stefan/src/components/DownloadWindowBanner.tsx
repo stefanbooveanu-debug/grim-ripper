@@ -1,7 +1,11 @@
 import { useLayoutEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
-import { ensureDownloadDeadline } from '../lib/downloadWindowStorage';
+import {
+  ensureDownloadDeadline,
+  getDownloadDeadline,
+  hasDownloadWindowStarted,
+} from '../lib/downloadWindowStorage';
 import './DownloadWindowBanner.css';
 
 function formatHms(totalSeconds: number): string {
@@ -25,7 +29,12 @@ export function DownloadWindowBanner() {
       setDeadline(null);
       return undefined;
     }
-    setDeadline(ensureDownloadDeadline(email));
+    if (!hasDownloadWindowStarted(email)) {
+      setDeadline(null);
+      return undefined;
+    }
+    const existing = getDownloadDeadline(email);
+    setDeadline(existing ?? ensureDownloadDeadline(email));
     const id = window.setInterval(() => setTick((n) => n + 1), 1000);
     return () => window.clearInterval(id);
   }, [session?.email]);
@@ -47,8 +56,8 @@ export function DownloadWindowBanner() {
   return (
     <div className="download-window-banner" role="region" aria-label="Approved user download window">
       <p className="download-window-disclaimer">
-        After your approval, you have 1 hour to download the files. If that hour passes and you have
-        not downloaded, you must submit another access request.
+        After you paste your code, you have 1 hour to download the files. If that hour passes and
+        you have not downloaded, you must submit another access request.
       </p>
       <div className="download-window-timer" aria-live="polite">
         <span className="download-window-timer-label">Time remaining</span>

@@ -141,6 +141,11 @@ export function AuthPage() {
 
       <main className="auth-main">
         <div className={`auth-card ${shake ? 'auth-card--shake' : ''}`}>
+          <div className="auth-stepper" aria-label="Access flow">
+            <span className={`auth-step ${step === 'request' ? 'active' : ''}`}>1. Request</span>
+            <span className={`auth-step ${step === 'login' ? 'active' : ''}`}>2. Login</span>
+          </div>
+
           {step === 'request' ? (
             <>
               <h2 className="auth-card-heading">Request access</h2>
@@ -184,6 +189,24 @@ export function AuthPage() {
 
                 <button type="submit" className="btn btn-primary auth-submit">
                   <span className="auth-submit-label">Send request</span>
+                </button>
+
+                <button
+                  type="button"
+                  className="auth-inline-link"
+                  onClick={() => {
+                    setStep('login');
+                    setLoginEmail(requestEmail.trim());
+                    setPassword('');
+                    setError('');
+                    try {
+                      window.localStorage.setItem(AUTH_STEP_STORAGE_KEY, 'login');
+                    } catch {
+                      // Ignore storage access issues in restricted contexts.
+                    }
+                  }}
+                >
+                  Already approved? Go to login
                 </button>
               </form>
             </>
@@ -253,6 +276,22 @@ export function AuthPage() {
                   }}
                 >
                   Back to request
+                </button>
+
+                <button
+                  type="button"
+                  className="auth-inline-link"
+                  onClick={() => {
+                    setStep('request');
+                    setError('');
+                    try {
+                      window.localStorage.setItem(AUTH_STEP_STORAGE_KEY, 'request');
+                    } catch {
+                      // Ignore storage access issues in restricted contexts.
+                    }
+                  }}
+                >
+                  Need to submit a new request?
                 </button>
               </form>
             </>
