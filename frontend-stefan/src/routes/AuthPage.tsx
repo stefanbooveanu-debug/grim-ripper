@@ -11,7 +11,7 @@ import '../components/shared.css';
 import './AuthPage.css';
 
 const COMPANY_EMAIL =
-  import.meta.env.VITE_COMPANY_EMAIL ?? 'access@grimdropper.com';
+  import.meta.env.VITE_COMPANY_EMAIL ?? 'grimrip.accesreq@protonmail.com';
 
 /** Short preview of body for the success screen (full text is still sent in compose). */
 function purposePreviewForDisplay(purpose: string): string {
@@ -40,10 +40,8 @@ function WebMailOptionalLink(props: {
   return (
     <>
       <p className="auth-browser-hint">
-        Request access opens your <strong>system mail app</strong> only (one window, better on
-        macOS). For a prefilled <strong>Gmail / Yahoo / Outlook</strong> tab in Safari or Chrome,
-        use the button below—especially if you opened this page inside Cursor or another embedded
-        browser.
+        Your default mail app opens first with prefilled details. If no draft appears, use the
+        button below to open a prefilled webmail compose window.
       </p>
       <a
         className="btn btn-secondary auth-web-compose-btn"

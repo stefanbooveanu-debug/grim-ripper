@@ -43,11 +43,9 @@ export function detectWebMailProvider(requesterEmail: string): WebMailProvider |
 export function webMailLinkLabel(provider: WebMailProvider): string {
   switch (provider) {
     case 'gmail':
-      return 'Open prefilled compose in Gmail (Safari / Chrome)';
     case 'yahoo':
-      return 'Open prefilled compose in Yahoo Mail (browser)';
     case 'outlook':
-      return 'Open prefilled compose in Outlook on the web (browser)';
+      return 'Open prefilled webmail compose';
   }
 }
 
