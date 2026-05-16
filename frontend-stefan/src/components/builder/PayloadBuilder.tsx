@@ -47,6 +47,10 @@ export function PayloadBuilder() {
         <p className="builder-sub">
           Paste a PowerShell script to obfuscate and prepare for deployment
         </p>
+        <p className="builder-trust-note">
+          Use this output only in authorized environments. Generated actions are logged for
+          traceability.
+        </p>
       </header>
 
       <div className="builder-grid">

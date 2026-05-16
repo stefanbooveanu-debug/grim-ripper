@@ -28,10 +28,11 @@ export function LogViewer() {
   return (
     <div className="logs-page">
       <header className="logs-header">
-        <div>
-          <h1 className="logs-title">LOGS</h1>
+        <div className="logs-heading-block">
+          <h1 className="logs-title">Activity logs</h1>
           <p className="logs-sub">
-            {logs.length} {logs.length === 1 ? 'entry' : 'entries'}
+            {logs.length} {logs.length === 1 ? 'entry' : 'entries'} · Timestamps are shown in your
+            local time.
           </p>
         </div>
         {logs.length > 0 && (

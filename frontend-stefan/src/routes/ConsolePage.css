@@ -1,5 +1,9 @@
 .console-header {
   margin-bottom: 28px;
+  padding: 1.1rem 1.1rem 1rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(24, 24, 27, 0.78) 0%, rgba(24, 24, 27, 0.56) 100%);
 }
 
 .console-title {
@@ -7,25 +11,43 @@
   font-size: 1.6rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  color: var(--text-primary);
 }
 
 .console-sub {
-  color: var(--fog);
-  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-size: 0.84rem;
   margin-top: 6px;
 }
 
 .console-api-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   margin-top: 12px;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 6px;
-  background: var(--accent-bg);
-  color: #c084fc;
-  border: 1px solid rgba(147, 51, 234, 0.3);
+  padding: 5px 10px;
+  border-radius: 9999px;
+  border: 1px solid var(--border-strong);
+}
+
+.console-api-badge--ok {
+  background: rgba(34, 197, 94, 0.14);
+  color: #86efac;
+  border-color: rgba(34, 197, 94, 0.35);
+}
+
+.console-api-badge--warn {
+  background: rgba(245, 158, 11, 0.14);
+  color: #fcd34d;
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+.console-api-badge--error {
+  background: rgba(239, 68, 68, 0.14);
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.35);
 }
 
 .console-grid {
@@ -45,10 +67,11 @@
 }
 
 .console-panel {
-  border: 1px solid #27272a;
-  background: rgba(24, 24, 27, 0.5);
-  border-radius: var(--radius);
+  border: 1px solid var(--border-soft);
+  background: var(--bg-surface);
+  border-radius: 12px;
   padding: 1.25rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .panel-title {
@@ -56,7 +79,7 @@
   font-size: 0.875rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #c084fc;
+  color: var(--soul);
   margin-bottom: 1rem;
 }
 
@@ -68,4 +91,11 @@
 .console-reset {
   margin-top: 12px;
   width: 100%;
+  border-color: rgba(248, 113, 113, 0.35);
+}
+
+.console-reset:hover:not(:disabled) {
+  border-color: rgba(248, 113, 113, 0.55);
+  background: rgba(127, 29, 29, 0.16);
+  color: #fca5a5;
 }

@@ -34,8 +34,7 @@ export function ConfigPanel({ onProcess, isProcessing }: ConfigPanelProps) {
 
       <button
         type="button"
-        className="btn btn-primary"
-        style={{ marginTop: '1rem' }}
+        className={`btn btn-primary builder-process-btn${isProcessing ? ' builder-process-btn--busy' : ''}`}
         onClick={onProcess}
         disabled={isProcessing || !scriptInput.trim()}
       >

@@ -41,6 +41,12 @@ function stageStatus(
   return 'idle';
 }
 
+function apiBadgeTone(status: string): 'ok' | 'warn' | 'error' {
+  if (status.startsWith('API connected')) return 'ok';
+  if (status.startsWith('Demo mode')) return 'warn';
+  return 'error';
+}
+
 export function ConsolePage() {
   const [file, setFile] = useState<File | null>(null);
   const [options, setOptions] = useState<PipelineOptions>(defaultOptions);
@@ -125,7 +131,9 @@ export function ConsolePage() {
       <header className="console-header">
         <h1 className="console-title">Operations console</h1>
         <p className="console-sub">Pack · Obfuscate · Encrypt — deploy hardened payloads</p>
-        <span className="console-api-badge">{apiStatus}</span>
+        <span className={`console-api-badge console-api-badge--${apiBadgeTone(apiStatus)}`}>
+          {apiStatus}
+        </span>
       </header>
 
       <div className="console-grid">

@@ -48,7 +48,7 @@ export function OutputPanel() {
           <div className="builder-stats">
             <div className="builder-stat">
               <div className="builder-stat-label">Method</div>
-              <div className="builder-stat-value" style={{ fontFamily: 'var(--font-display)' }}>
+              <div className="builder-stat-value builder-stat-value--method">
                 {processedScript.method}
               </div>
             </div>
@@ -56,7 +56,7 @@ export function OutputPanel() {
               <div className="builder-stat-label">Size</div>
               <div className="builder-stat-value">
                 {processedScript.processedLength} bytes
-                <span style={{ color: '#71717a', marginLeft: 6 }}>
+                <span className="builder-stat-muted">
                   ({processedScript.length} original)
                 </span>
               </div>

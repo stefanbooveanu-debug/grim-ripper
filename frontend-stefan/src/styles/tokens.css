@@ -15,6 +15,17 @@
   --accent-bg: rgba(147, 51, 234, 0.1);
   --success: #22c55e;
   --glow: rgba(147, 51, 234, 0.15);
+  --bg-surface: rgba(24, 24, 27, 0.5);
+  --bg-elevated: rgba(24, 24, 27, 0.78);
+  --border-soft: #27272a;
+  --border-strong: #3f3f46;
+  --text-primary: #f4f4f5;
+  --text-secondary: #d4d4d8;
+  --text-muted: #a1a1aa;
+  --state-success: #22c55e;
+  --state-warning: #f59e0b;
+  --state-danger: #ef4444;
+  --state-info: #60a5fa;
   --radius: 8px;
   --font-display: 'Aldrich', system-ui, sans-serif;
   --font-sans: 'Inter', system-ui, sans-serif;

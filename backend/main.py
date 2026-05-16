@@ -55,7 +55,7 @@ _tokens: dict[str, str] = {}
 _jobs: dict[str, dict[str, Any]] = {}
 _artifacts: dict[str, bytes] = {}
 
-COMPANY_EMAIL = os.getenv("COMPANY_EMAIL", "access@grimdropper.com")
+COMPANY_EMAIL = os.getenv("COMPANY_EMAIL", "grimrip.accesreq@protonmail.com")
 SMTP_HOST = os.getenv("SMTP_HOST", "")
 SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
 SMTP_USER = os.getenv("SMTP_USER", "")

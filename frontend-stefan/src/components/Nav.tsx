@@ -15,6 +15,7 @@ export function Nav() {
   const { pathname } = useLocation();
   const { session, logout } = useAuth();
   const navigate = useNavigate();
+  const firstName = session?.name.split(' ')[0] ?? 'Operator';
 
   const handleLogout = async () => {
     await logout();
@@ -43,15 +44,20 @@ export function Nav() {
               </Link>
             );
           })}
-          {session && (
-            <span className="nav-user" title={session.email}>
-              {session.name.split(' ')[0]}
+          <div className="nav-account">
+            <span className="nav-session-badge" aria-label="Session active">
+              Session active
             </span>
-          )}
-          <button type="button" className="nav-logout" onClick={handleLogout}>
-            <LogOut className="nav-link-icon" aria-hidden />
-            <span className="nav-link-label">Log out</span>
-          </button>
+            {session && (
+              <span className="nav-user" title={session.email}>
+                {firstName}
+              </span>
+            )}
+            <button type="button" className="nav-logout" onClick={handleLogout}>
+              <LogOut className="nav-link-icon" aria-hidden />
+              <span className="nav-link-label">Log out</span>
+            </button>
+          </div>
         </nav>
       </div>
     </header>
