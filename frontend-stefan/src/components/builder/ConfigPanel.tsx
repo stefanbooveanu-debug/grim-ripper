@@ -5,10 +5,9 @@ import './builder.css';
 interface ConfigPanelProps {
   onProcess: () => void;
   isProcessing: boolean;
-  onScriptPasted?: () => void;
 }
 
-export function ConfigPanel({ onProcess, isProcessing, onScriptPasted }: ConfigPanelProps) {
+export function ConfigPanel({ onProcess, isProcessing }: ConfigPanelProps) {
   const { scriptInput, setScriptInput } = useStore();
   const lines = scriptInput ? scriptInput.split('\n').length : 0;
 
@@ -22,7 +21,6 @@ export function ConfigPanel({ onProcess, isProcessing, onScriptPasted }: ConfigP
       <textarea
         value={scriptInput}
         onChange={(e) => setScriptInput(e.target.value)}
-        onPaste={() => onScriptPasted?.()}
         placeholder="Paste your PowerShell script here..."
         className="builder-textarea"
         spellCheck={false}

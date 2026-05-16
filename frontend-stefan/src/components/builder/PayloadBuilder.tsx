@@ -12,14 +12,10 @@ export function PayloadBuilder() {
   const [isProcessing, setIsProcessing] = useState(false);
   const { scriptInput, setProcessedScript, addLog } = useStore();
 
-  const handleScriptPasted = () => {
-    const email = session?.email?.trim();
-    if (!email) return;
-    startDownloadWindow(email);
-  };
-
   const handleProcess = () => {
     if (!scriptInput.trim()) return;
+    const email = session?.email?.trim();
+    if (email) startDownloadWindow(email);
     setIsProcessing(true);
 
     window.setTimeout(() => {
@@ -63,11 +59,7 @@ export function PayloadBuilder() {
       </header>
 
       <div className="builder-grid">
-        <ConfigPanel
-          onProcess={handleProcess}
-          isProcessing={isProcessing}
-          onScriptPasted={handleScriptPasted}
-        />
+        <ConfigPanel onProcess={handleProcess} isProcessing={isProcessing} />
         <OutputPanel />
       </div>
     </>

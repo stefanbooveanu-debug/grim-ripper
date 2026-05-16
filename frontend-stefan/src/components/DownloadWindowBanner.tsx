@@ -56,8 +56,8 @@ export function DownloadWindowBanner() {
   return (
     <div className="download-window-banner" role="region" aria-label="Approved user download window">
       <p className="download-window-disclaimer">
-        After you paste your code, you have 1 hour to download the files. If that hour passes and
-        you have not downloaded, you must submit another access request.
+        After you process your script, you have 1 hour to download the files. If that hour passes
+        and you have not downloaded, you must submit another access request.
       </p>
       <div className="download-window-timer" aria-live="polite">
         <span className="download-window-timer-label">Time remaining</span>
