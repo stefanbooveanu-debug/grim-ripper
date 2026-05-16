@@ -15,25 +15,27 @@ The UI talks to the API only through:
 
 Reference copy under `frontend-stefan/backend/` is **legacy** for local demos; the canonical API for integration is **`/backend`** at repo root.
 
-## Auth v1 (decided)
+## Auth model (active)
 
-**Option B — request access first, full login later**
+**Option A — login/session in frontend**
 
-| Layer | v1 behavior |
-|-------|-------------|
-| **UI** (`AuthPage`) | Request access (email + purpose). No login/signup form. |
-| **Friend’s backend** | Implement **pipeline + logs + health** first. Keep `POST /api/auth/*` matching the contract when you add Supabase; do not change React auth until Stefan switches the UI. |
-| **Contract** | `login` / `signup` / `session` stay documented for v2; optional in v1 implementation. |
+| Layer | active behavior |
+|-------|-----------------|
+| **UI** (`AuthPage`) | Login + sign-up form powered by backend auth endpoints. |
+| **Friend’s backend** | Must implement `POST /api/auth/signup`, `POST /api/auth/login`, `GET /api/auth/session`, `POST /api/auth/logout` plus pipeline routes. |
+| **Contract** | Auth + pipeline routes in `frontend-stefan/docs/api-contract.md` are required for integration readiness. |
 
-When moving to **Option A** (login/session in UI), update the contract and `client.ts` together in one PR — never only one side.
+Access-request mail flow remains optional and should not replace login/session without coordinated frontend + contract changes.
 
 ## Friend checklist (Copilot)
 
 1. Branch: `feature/backend`
 2. Work only in `/backend` at repo root
-3. Match every route in `frontend-stefan/docs/api-contract.md`
+3. Match every route in `frontend-stefan/docs/api-contract.md` (including auth/session).
 4. CORS: `http://127.0.0.1:5173`, `http://localhost:5173`
 5. Run on port `8080` (or tell Stefan to change `VITE_API_URL`)
+6. Verify auth flow from UI: **Sign up -> Log in -> Session -> Log out**
+7. Verify pipeline flow from UI: run, reset, and artifact download
 
 **Copilot prompt:**
 

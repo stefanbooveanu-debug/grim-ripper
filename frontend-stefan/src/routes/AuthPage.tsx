@@ -88,6 +88,7 @@ export function AuthPage() {
       fail('Enter a valid email address.');
       return;
     }
+
     if (trimmedPurpose.length < 10) {
       fail('Please describe your purpose (at least 10 characters).');
       return;

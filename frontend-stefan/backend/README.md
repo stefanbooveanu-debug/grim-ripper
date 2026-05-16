@@ -27,10 +27,10 @@ Without Supabase env vars, the API uses **in-memory** users and jobs (fine for l
 
 ## React
 
-In `grim-dropper/.env`:
+In `frontend-stefan/.env`:
 
 ```
 VITE_API_URL=http://127.0.0.1:8080
 ```
 
-Then `npm run dev` in the parent folder.
+Then run `npm run dev:frontend-stefan` from repo root (or `npm run dev` inside `frontend-stefan`).
