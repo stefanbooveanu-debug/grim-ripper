@@ -1,0 +1,9 @@
+[
+  {
+    "id": "user-1",
+    "email": "researcher@example.com",
+    "name": "Researcher",
+    "passwordHash": "$2a$10$mmbTPLUWY8IBqVEatLgKzO2xUoLvNzdh8lheLpK1zuZonwbRtGUVW"
+  }
+]
+
