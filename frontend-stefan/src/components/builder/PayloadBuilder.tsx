@@ -43,7 +43,7 @@ export function PayloadBuilder() {
   return (
     <>
       <header className="builder-header">
-        <h1 className="builder-title">Script builder</h1>
+        <h1 className="builder-title">GRIM DROPPER</h1>
         <p className="builder-sub">
           Paste a PowerShell script to obfuscate and prepare for deployment
         </p>

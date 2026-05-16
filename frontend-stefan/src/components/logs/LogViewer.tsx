@@ -1,3 +1,4 @@
+import { Search, ScrollText, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import type { LogEntry as LogEntryType } from '../../store';
 import { useStore } from '../../store';
@@ -28,23 +29,22 @@ export function LogViewer() {
     <div className="logs-page">
       <header className="logs-header">
         <div>
-          <h1 className="logs-title">Logs</h1>
+          <h1 className="logs-title">LOGS</h1>
           <p className="logs-sub">
             {logs.length} {logs.length === 1 ? 'entry' : 'entries'}
           </p>
         </div>
         {logs.length > 0 && (
-          <button type="button" className="btn" onClick={clearLogs}>
-            Clear all
+          <button type="button" className="btn logs-clear-btn" onClick={clearLogs}>
+            <Trash2 size={14} aria-hidden />
+            CLEAR ALL
           </button>
         )}
       </header>
 
       <div className="logs-toolbar">
         <div className="logs-search-wrap">
-          <span className="logs-search-icon" aria-hidden>
-            ⌕
-          </span>
+          <Search className="logs-search-icon" size={16} aria-hidden />
           <input
             type="search"
             className="logs-search"
@@ -67,7 +67,9 @@ export function LogViewer() {
 
       {filtered.length === 0 ? (
         <div className="logs-empty">
-          <div className="logs-empty-icon">☰</div>
+          <div className="logs-empty-icon">
+            <ScrollText size={24} aria-hidden />
+          </div>
           <p>
             {logs.length === 0
               ? 'No logs yet. Process a script in Builder or run the Console pipeline.'

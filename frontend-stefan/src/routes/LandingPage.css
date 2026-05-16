@@ -4,23 +4,19 @@
 }
 
 .landing-track {
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--ember);
+  color: #c084fc;
   margin-bottom: 12px;
 }
 
 .landing-title {
   font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(2rem, 8vw, 3rem);
-  letter-spacing: 0.12em;
+  font-size: clamp(1.75rem, 6vw, 2.25rem);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  background: linear-gradient(180deg, var(--bone), var(--fog));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #f4f4f5;
 }
 
 .landing-tagline {

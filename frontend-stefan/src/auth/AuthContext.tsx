@@ -10,6 +10,7 @@ import {
 import { fetchSession, isApiConfigured, logIn, logOut, signUp } from '../api/client';
 import { parseApiError } from '../api/errors';
 import type { UserProfile } from '../api/types';
+import { clearDownloadDeadline } from '../lib/downloadWindowStorage';
 import { clearLegacyAuth, getStoredSession, setStoredSession } from './storage';
 
 interface AuthContextValue {
@@ -53,6 +54,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       .catch(() => {
         setStoredSession(null);
         setSessionState(null);
+        clearDownloadDeadline();
       })
       .finally(() => setIsReady(true));
   }, []);
@@ -93,6 +95,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
     setStoredSession(null);
     setSessionState(null);
+    clearDownloadDeadline();
   }, []);
 
   const value = useMemo(

@@ -18,14 +18,14 @@
 .console-api-badge {
   display: inline-block;
   margin-top: 12px;
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 4px 10px;
-  border-radius: 4px;
-  background: var(--smoke);
-  color: var(--ember);
-  border: 1px solid rgba(196, 60, 74, 0.3);
+  border-radius: 6px;
+  background: var(--accent-bg);
+  color: #c084fc;
+  border: 1px solid rgba(147, 51, 234, 0.3);
 }
 
 .console-grid {
@@ -45,18 +45,19 @@
 }
 
 .console-panel {
-  background: var(--ash);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid #27272a;
+  background: rgba(24, 24, 27, 0.5);
   border-radius: var(--radius);
-  padding: 20px 22px;
+  padding: 1.25rem;
 }
 
 .panel-title {
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--fog);
-  margin-bottom: 16px;
+  color: #c084fc;
+  margin-bottom: 1rem;
 }
 
 .pipeline-list {

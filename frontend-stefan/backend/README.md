@@ -1,4 +1,8 @@
-# Grim Dropper Python API
+# Grim Dropper Python API (legacy copy)
+
+**Use the repo-root API instead:** [`../../backend/`](../../backend/README.md)
+
+This folder is kept for older docs/scripts. New work and Copilot integration belong in **`/backend`** at the repo root. See [`../../INTEGRATION.md`](../../INTEGRATION.md).
 
 Reference backend matching [`docs/api-contract.md`](../docs/api-contract.md).
 

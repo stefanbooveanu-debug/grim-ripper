@@ -1,0 +1,77 @@
+.download-window-banner {
+  margin: 0 auto;
+  max-width: var(--max-content);
+  width: 100%;
+  padding: 12px 1.5rem 0;
+  box-sizing: border-box;
+}
+
+.download-window-disclaimer {
+  margin: 0 0 10px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  background: rgba(127, 29, 29, 0.22);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #f87171;
+}
+
+.download-window-timer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 20px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #3f3f46;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.download-window-timer-label {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #71717a;
+}
+
+.download-window-timer-value {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+  color: #e4e4e7;
+}
+
+.download-window-expired-block {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.download-window-expired {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #f87171;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.download-window-request-again {
+  width: auto;
+  min-width: min(100%, 280px);
+}
+
+@media (min-width: 640px) {
+  .download-window-timer {
+    justify-content: space-between;
+  }
+}

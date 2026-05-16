@@ -1,3 +1,4 @@
+import { Check, Copy, FileDown } from 'lucide-react';
 import { useState } from 'react';
 import { useStore } from '../../store';
 import './builder.css';
@@ -29,12 +30,14 @@ export function OutputPanel() {
   };
 
   return (
-    <div className="builder-panel">
+    <motion.div className="builder-panel">
       <h2 className="builder-panel-title">Output</h2>
 
       {!processedScript ? (
         <div className="builder-output-empty">
-          <div className="builder-output-empty-icon">↓</div>
+          <div className="builder-output-empty-icon">
+            <FileDown size={24} aria-hidden />
+          </div>
           <p>Paste a script and process it</p>
         </div>
       ) : (
@@ -45,13 +48,15 @@ export function OutputPanel() {
           <div className="builder-stats">
             <div className="builder-stat">
               <div className="builder-stat-label">Method</div>
-              <div className="builder-stat-value">{processedScript.method}</div>
+              <div className="builder-stat-value" style={{ fontFamily: 'var(--font-display)' }}>
+                {processedScript.method}
+              </div>
             </div>
             <div className="builder-stat">
               <div className="builder-stat-label">Size</div>
               <div className="builder-stat-value">
                 {processedScript.processedLength} bytes
-                <span style={{ color: 'var(--fog)', marginLeft: 6 }}>
+                <span style={{ color: '#71717a', marginLeft: 6 }}>
                   ({processedScript.length} original)
                 </span>
               </div>
@@ -59,15 +64,13 @@ export function OutputPanel() {
           </div>
 
           <div className="builder-actions">
-            <button
-              type="button"
-              className={`btn ${copied ? 'btn-copied' : ''}`}
-              onClick={handleCopy}
-            >
-              {copied ? 'Copied' : 'Copy'}
+            <button type="button" className={`btn ${copied ? 'btn-copied' : ''}`} onClick={handleCopy}>
+              {copied ? <Check size={14} /> : <Copy size={14} />}
+              {copied ? 'COPIED' : 'COPY'}
             </button>
             <button type="button" className="btn" onClick={handleDownload}>
-              Download .ps1
+              <FileDown size={14} />
+              DOWNLOAD .ps1
             </button>
           </div>
         </div>

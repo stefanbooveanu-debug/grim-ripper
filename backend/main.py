@@ -1,5 +1,6 @@
 """
-Grim Dropper API — React talks here; this service talks to Supabase when configured.
+Grim Dropper API — repo root /backend (canonical).
+Implements frontend-stefan/docs/api-contract.md
 Run: uvicorn main:app --host 127.0.0.1 --port 8080 --reload
 """
 

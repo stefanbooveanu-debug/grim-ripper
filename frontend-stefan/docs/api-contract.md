@@ -2,6 +2,10 @@
 
 React (Vite) talks to the Python API on the same machine. Python handles Supabase.
 
+**Canonical server:** repo root [`backend/`](../../backend/) (not `frontend-stefan/backend/`).
+
+**Auth v1:** Request access uses **`mailto:`** first (system Mail app on macOS). Gmail / Yahoo / Outlook users get an optional **manual** web-compose link on the success screen (same To / Subject / Body) so prefilled mail opens in Safari or Chrome, not from embedded IDE browsers. See [`INTEGRATION.md`](../../INTEGRATION.md).
+
 **Base URL:** `http://127.0.0.1:8080` (set `VITE_API_URL` in React `.env`)
 
 ## Auth
