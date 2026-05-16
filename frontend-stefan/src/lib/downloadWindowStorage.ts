@@ -1,5 +1,6 @@
 const STORAGE_KEY = 'grim_dropper_download_deadline_v1';
 const STARTED_KEY = 'grim_dropper_download_started_v1';
+export const DOWNLOAD_WINDOW_STARTED_EVENT = 'grim-dropper-download-window-started';
 
 export type DownloadDeadlineRecord = {
   email: string;
@@ -57,9 +58,16 @@ export function hasDownloadWindowStarted(email: string): boolean {
 export function startDownloadWindow(email: string): number {
   const norm = email.trim().toLowerCase();
   if (canUseStorage()) {
-    sessionStorage.setItem(STARTED_KEY, JSON.stringify({ email: norm, started: true } satisfies DownloadStartedRecord));
+    sessionStorage.setItem(
+      STARTED_KEY,
+      JSON.stringify({ email: norm, started: true } satisfies DownloadStartedRecord),
+    );
   }
-  return ensureDownloadDeadline(norm);
+  const deadline = ensureDownloadDeadline(norm);
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent(DOWNLOAD_WINDOW_STARTED_EVENT));
+  }
+  return deadline;
 }
 
 export function clearDownloadDeadline(): void {

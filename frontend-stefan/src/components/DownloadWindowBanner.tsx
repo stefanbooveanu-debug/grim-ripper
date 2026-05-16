@@ -2,6 +2,7 @@ import { useLayoutEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
 import {
+  DOWNLOAD_WINDOW_STARTED_EVENT,
   ensureDownloadDeadline,
   getDownloadDeadline,
   hasDownloadWindowStarted,
@@ -29,14 +30,25 @@ export function DownloadWindowBanner() {
       setDeadline(null);
       return undefined;
     }
-    if (!hasDownloadWindowStarted(email)) {
-      setDeadline(null);
-      return undefined;
-    }
-    const existing = getDownloadDeadline(email);
-    setDeadline(existing ?? ensureDownloadDeadline(email));
+
+    const syncFromStorage = () => {
+      if (!hasDownloadWindowStarted(email)) {
+        setDeadline(null);
+        return;
+      }
+      const existing = getDownloadDeadline(email);
+      setDeadline(existing ?? ensureDownloadDeadline(email));
+    };
+
+    syncFromStorage();
     const id = window.setInterval(() => setTick((n) => n + 1), 1000);
-    return () => window.clearInterval(id);
+    const onStarted = () => syncFromStorage();
+    window.addEventListener(DOWNLOAD_WINDOW_STARTED_EVENT, onStarted);
+
+    return () => {
+      window.clearInterval(id);
+      window.removeEventListener(DOWNLOAD_WINDOW_STARTED_EVENT, onStarted);
+    };
   }, [session?.email]);
 
   if (!session?.email || deadline === null) return null;
