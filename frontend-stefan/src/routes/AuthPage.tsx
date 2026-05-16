@@ -34,17 +34,6 @@ export function AuthPage() {
     return () => cancelAnimationFrame(t);
   }, []);
 
-  useEffect(() => {
-    try {
-      const saved = window.localStorage.getItem(AUTH_STEP_STORAGE_KEY);
-      if (saved === 'login' || saved === 'request') {
-        setStep(saved);
-      }
-    } catch {
-      // Ignore storage access issues in restricted contexts.
-    }
-  }, []);
-
   const fail = (msg: string) => {
     setError(msg);
     setShake(true);

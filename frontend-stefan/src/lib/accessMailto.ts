@@ -1,8 +1,7 @@
 /**
- * Access request: opens the system mail handler via mailto: (one window, macOS-friendly).
- * Optional Gmail / Yahoo / Outlook **web** compose URLs are built for a manual link on the
- * success screen — avoids `window.open` from embedded browsers (e.g. Cursor) opening an
- * extra tab while Spaces sends Chrome to another desktop.
+ * Access request compose behavior:
+ * - Gmail / Yahoo / Outlook users are redirected to matching web compose with prefilled fields.
+ * - Other domains fall back to system mail handler via mailto.
  */
 
 /** Subject line for the access / pricing request (prefilled in the compose window). */
@@ -161,18 +160,28 @@ export function openMailtoUrl(url: string): void {
   document.body.removeChild(a);
 }
 
+function openWebComposeUrl(url: string): void {
+  window.location.assign(url);
+}
+
 /**
- * Opens only the system mail handler (mailto:). Use the optional web compose link on the
- * success screen so Gmail opens in **your** browser when you choose, not from an embedded IDE tab.
+ * Opens matching web compose for known providers (gmail/yahoo/outlook), otherwise mailto.
  */
 export function openAccessRequestCompose(opts: {
   companyEmail: string;
   requesterEmail: string;
   purpose: string;
 }): { ok: true } | { ok: false; message: string } {
-  const mailto = buildAccessRequestMailtoUrl(opts);
   const len = validateComposeUrlLength(longestAccessRequestUrl(opts));
   if (!len.ok) return len;
+
+  const web = buildAccessRequestWebComposeUrl(opts);
+  if (web) {
+    openWebComposeUrl(web.url);
+    return { ok: true };
+  }
+
+  const mailto = buildAccessRequestMailtoUrl(opts);
   openMailtoUrl(mailto);
   return { ok: true };
 }
