@@ -52,10 +52,10 @@ export function webMailLinkLabel(provider: WebMailProvider): string {
 }
 
 function buildMailto(to: string, subject: string, body: string): string {
-  const q = new URLSearchParams();
-  q.set('subject', subject);
-  q.set('body', body);
-  return `mailto:${to}?${q.toString()}`;
+  // Use encodeURIComponent so spaces are %20 (Apple Mail-friendly), not "+".
+  const encodedSubject = encodeURIComponent(subject);
+  const encodedBody = encodeURIComponent(body);
+  return `mailto:${to}?subject=${encodedSubject}&body=${encodedBody}`;
 }
 
 /** Always use for the immediate “Request access” action. */

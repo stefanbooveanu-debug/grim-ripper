@@ -30,7 +30,7 @@ export function OutputPanel() {
   };
 
   return (
-    <motion.div className="builder-panel">
+    <div className="builder-panel">
       <h2 className="builder-panel-title">Output</h2>
 
       {!processedScript ? (
